@@ -181,7 +181,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'EsqueletBundle\\Controller\\DefaultController::plantillaAction',  '_route' => 'plantilla',);
         }
 
-        if (0 === strpos($pathinfo, '/r')) {
+        if (0 === strpos($pathinfo, '/re')) {
             // resultados_y_clasificacion
             if ('/resultados_y_clasificacion' === $pathinfo) {
                 return array (  '_controller' => 'EsqueletBundle\\Controller\\DefaultController::resultados_y_clasificacionAction',  '_route' => 'resultados_y_clasificacion',);
@@ -192,16 +192,44 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'EsqueletBundle\\Controller\\DefaultController::registroAction',  '_route' => 'registro',);
             }
 
-            // rankings
-            if ('/rankings' === $pathinfo) {
-                return array (  '_controller' => 'EsqueletBundle\\Controller\\DefaultController::rankingsAction',  '_route' => 'rankings',);
+            // user_registration
+            if ('/register' === $pathinfo) {
+                return array (  '_controller' => 'EsqueletBundle\\Controller\\UsuariosController::registerAction',  '_route' => 'user_registration',);
             }
 
+        }
+
+        // rankings
+        if ('/rankings' === $pathinfo) {
+            return array (  '_controller' => 'EsqueletBundle\\Controller\\DefaultController::rankingsAction',  '_route' => 'rankings',);
         }
 
         // mi_perfil
         if ('/mi_perfil' === $pathinfo) {
             return array (  '_controller' => 'EsqueletBundle\\Controller\\DefaultController::mi_perfilAction',  '_route' => 'mi_perfil',);
+        }
+
+        // usuario
+        if ('/usuario' === $pathinfo) {
+            return array (  '_controller' => 'EsqueletBundle\\Controller\\UsuariosController::usuarioAction',  '_route' => 'usuario',);
+        }
+
+        if (0 === strpos($pathinfo, '/usuarios')) {
+            // usuarios
+            if ('/usuarios' === $pathinfo) {
+                return array (  '_controller' => 'EsqueletBundle\\Controller\\UsuariosController::usuariosAction',  '_route' => 'usuarios',);
+            }
+
+            // login
+            if ('/usuarios/login' === $pathinfo) {
+                return array (  '_controller' => 'EsqueletBundle\\Controller\\UsuariosController::loginAction',  '_route' => 'login',);
+            }
+
+            // logout
+            if ('/usuarios/logout' === $pathinfo) {
+                return array('_route' => 'logout');
+            }
+
         }
 
         // homepage
